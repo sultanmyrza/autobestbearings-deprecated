@@ -62,7 +62,7 @@ export default {
     const hubAndWheel = this.fetchProducts('hubAndWheel')
 
     return {
-      expandedPanels: [0, 1],
+      expandedPanels: [0, 1, 2, 3, 4],
       disabled: false,
       readonly: false,
       clutchReleaseBearings,

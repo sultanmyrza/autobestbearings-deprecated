@@ -57,7 +57,24 @@
       <v-container>
         <nuxt />
       </v-container>
+      <v-footer>
+        <v-card-text class="pt-0">
+          Tel：886-2-2289-5853
+          <br />
+          E-mail：
+          <a href="mailto:autobestbearings@gmail.com"
+            >autobestbearings@gmail.com</a
+          >
+          <a href="mailto:salas@autobestbearings.com."
+            >salas@autobestbearings.com.</a
+          >
+
+          <br />
+          Copyright © 2012 AUTO BEST BEARINGS CO., LTD. All Rights Reserved.
+        </v-card-text>
+      </v-footer>
     </v-content>
+
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
@@ -70,9 +87,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 

@@ -46,7 +46,11 @@
           required
         ></v-text-field>
 
-        <v-textarea v-model="message" label="Message"></v-textarea>
+        <v-textarea
+          :rules="nameRules"
+          v-model="message"
+          label="Message"
+        ></v-textarea>
 
         <re-captcha @reCaptchaSuccess="onReCaptchaSuccess" />
 
@@ -81,10 +85,7 @@ export default {
     subject: '',
     message: '',
     name: '',
-    nameRules: [
-      (v) => !!v || 'required',
-      (v) => (v && v.length <= 20) || 'Name must be less than 20 characters'
-    ],
+    nameRules: [(v) => !!v || 'required'],
     email: '',
     emailRules: [
       (v) => !!v || 'required',

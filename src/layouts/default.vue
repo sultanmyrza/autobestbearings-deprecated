@@ -48,6 +48,7 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <ThemeSwitcher />
       <v-btn @click.stop="rightDrawer = !rightDrawer" icon>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -76,7 +77,10 @@
 </template>
 
 <script>
+import ThemeSwitcher from '../components/ThemeSwitcher.vue'
+
 export default {
+  components: { ThemeSwitcher },
   data() {
     return {
       clipped: true,

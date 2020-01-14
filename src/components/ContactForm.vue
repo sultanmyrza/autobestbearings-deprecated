@@ -2,15 +2,15 @@
   <v-row align="center" justify="center">
     <v-col lg="4" md="6" sm="10" xs="10">
       <v-form
-        @submit.prevent="submitForm"
         ref="form"
+        @submit.prevent="submitForm"
         v-model="valid"
         :lazy-validation="lazy"
       >
         <v-text-field
           v-model="country"
           :counter="20"
-          :rules="nameRules"
+          :rules="requiredRules"
           label="Country"
           required
         ></v-text-field>
@@ -18,7 +18,7 @@
         <v-text-field
           v-model="company"
           :counter="20"
-          :rules="nameRules"
+          :rules="requiredRules"
           label="Company"
           required
         ></v-text-field>
@@ -26,7 +26,7 @@
         <v-text-field
           v-model="name"
           :counter="20"
-          :rules="nameRules"
+          :rules="requiredRules"
           label="Name"
           required
         ></v-text-field>
@@ -41,13 +41,13 @@
         <v-text-field
           v-model="subject"
           :counter="20"
-          :rules="nameRules"
+          :rules="requiredRules"
           label="Subject"
           required
         ></v-text-field>
 
         <v-textarea
-          :rules="nameRules"
+          :rules="requiredRules"
           v-model="message"
           label="Message"
         ></v-textarea>
@@ -85,7 +85,7 @@ export default {
     subject: '',
     message: '',
     name: '',
-    nameRules: [(v) => !!v || 'required'],
+    requiredRules: [(v) => !!v || 'required'],
     email: '',
     emailRules: [
       (v) => !!v || 'required',

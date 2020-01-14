@@ -5,7 +5,7 @@
 
       <v-snackbar v-model="snackbar" :multi-line="multiLine">
         {{ text }}
-        <v-btn color="red" text @click="snackbar = false">
+        <v-btn @click="snackbar = false" color="red" text>
           Close
         </v-btn>
       </v-snackbar>
@@ -32,8 +32,7 @@ export default {
     },
     onSuccess(token) {
       // TODO: don't show on snackbar
-      console.log(token)
-      this.showSnackbar('ReCaptcha token:', token)
+      // this.showSnackbar('ReCaptcha token:', token)
       this.$emit('reCaptchaSuccess', true)
     },
     onExpired() {

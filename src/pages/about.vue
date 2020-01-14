@@ -104,7 +104,7 @@
       </v-timeline>
       <div style="height:24px"></div>
 
-      <v-btn x-large color="success" :to="'contact'">Contact us</v-btn>
+      <v-btn :to="'contact'" x-large color="success">Contact us</v-btn>
       <div style="height:56px"></div>
     </v-flex>
   </v-layout>

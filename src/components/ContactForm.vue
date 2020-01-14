@@ -1,48 +1,57 @@
 <template>
   <v-row align="center" justify="center">
-    <v-form ref="form" v-model="valid" :lazy-validation="lazy">
-      <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="Name"
-        required
-      ></v-text-field>
+    <v-col lg="4" md="6" sm="10" xs="10">
+      <v-form ref="form" v-model="valid" :lazy-validation="lazy">
+        <v-text-field
+          v-model="country"
+          :counter="20"
+          :rules="nameRules"
+          label="Country"
+          required
+        ></v-text-field>
 
-      <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-      ></v-text-field>
+        <v-text-field
+          v-model="company"
+          :counter="20"
+          :rules="nameRules"
+          label="Company"
+          required
+        ></v-text-field>
 
-      <v-select
-        v-model="select"
-        :items="items"
-        :rules="[(v) => !!v || 'Item is required']"
-        label="Item"
-        required
-      ></v-select>
+        <v-text-field
+          v-model="name"
+          :counter="20"
+          :rules="nameRules"
+          label="Name"
+          required
+        ></v-text-field>
 
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[(v) => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
-        required
-      ></v-checkbox>
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail"
+          required
+        ></v-text-field>
 
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Validate
-      </v-btn>
+        <v-text-field
+          v-model="subject"
+          :counter="20"
+          :rules="nameRules"
+          label="Subject"
+          required
+        ></v-text-field>
 
-      <v-btn color="error" class="mr-4" @click="reset">
-        Reset Form
-      </v-btn>
+        <v-textarea v-model="message" label="Message"></v-textarea>
 
-      <v-btn color="warning" @click="resetValidation">
-        Reset Validation
-      </v-btn>
-    </v-form>
+        <v-btn @click="reset" color="warning" class="mr-4">
+          Reset Form
+        </v-btn>
+
+        <v-btn @click="submitForm" color="success">
+          Submit
+        </v-btn>
+      </v-form>
+    </v-col>
   </v-row>
 </template>
 
@@ -50,19 +59,23 @@
 export default {
   data: () => ({
     valid: true,
+    country: '',
+    company: '',
+    phone: '',
+    fax: '',
+    subject: '',
+    message: '',
     name: '',
     nameRules: [
-      (v) => !!v || 'Name is required',
-      (v) => (v && v.length <= 10) || 'Name must be less than 10 characters'
+      (v) => !!v || 'required',
+      (v) => (v && v.length <= 20) || 'Name must be less than 20 characters'
     ],
     email: '',
     emailRules: [
-      (v) => !!v || 'E-mail is required',
+      (v) => !!v || 'required',
       (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
     ],
-    select: null,
-    items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
-    checkbox: false,
+
     lazy: false
   }),
 
@@ -77,6 +90,9 @@ export default {
     },
     resetValidation() {
       this.$refs.form.resetValidation()
+    },
+    submitForm() {
+      // TODO send email to our server
     }
   }
 }

@@ -88,6 +88,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Products',
           to: '/products'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Contact Us',
+          to: '/contact'
         }
       ],
       miniVariant: false,

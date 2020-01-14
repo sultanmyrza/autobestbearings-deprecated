@@ -1,7 +1,12 @@
 <template>
   <v-row align="center" justify="center">
     <v-col lg="4" md="6" sm="10" xs="10">
-      <v-form ref="form" v-model="valid" :lazy-validation="lazy">
+      <v-form
+        @submit.prevent="submitForm"
+        ref="form"
+        v-model="valid"
+        :lazy-validation="lazy"
+      >
         <v-text-field
           v-model="country"
           :counter="20"
@@ -43,11 +48,17 @@
 
         <v-textarea v-model="message" label="Message"></v-textarea>
 
+        <re-captcha @reCaptchaSuccess="onReCaptchaSuccess" />
+
         <v-btn @click="reset" color="warning" class="mr-4">
           Reset Form
         </v-btn>
 
-        <v-btn @click="submitForm" color="success">
+        <v-btn
+          :disabled="!valid || !reCatpcha"
+          @click="submitForm"
+          color="success"
+        >
           Submit
         </v-btn>
       </v-form>
@@ -56,9 +67,13 @@
 </template>
 
 <script>
+import ReCaptcha from './ReCaptcha.vue'
+
 export default {
+  components: { ReCaptcha },
   data: () => ({
-    valid: true,
+    valid: false,
+    reCatpcha: false,
     country: '',
     company: '',
     phone: '',
@@ -80,6 +95,9 @@ export default {
   }),
 
   methods: {
+    onReCaptchaSuccess(success) {
+      this.reCatpcha = success === true
+    },
     validate() {
       if (this.$refs.form.validate()) {
         this.snackbar = true

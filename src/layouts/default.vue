@@ -65,8 +65,8 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
+      clipped: true,
+      drawer: true,
       fixed: false,
       items: [
         {
@@ -83,6 +83,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'About Us',
           to: '/about'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Products',
+          to: '/products'
         }
       ],
       miniVariant: false,

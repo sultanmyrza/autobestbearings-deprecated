@@ -19,6 +19,17 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item>
+          <v-list-item-content>
+            <a
+              style="text-decoration: none;"
+              href="mailto:autobestbearings@gmail.com"
+            >
+              <v-list-item-title v-text="'Email Us'" />
+            </a>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>

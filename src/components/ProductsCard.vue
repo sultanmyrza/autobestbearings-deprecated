@@ -26,8 +26,8 @@
 
               <v-img
                 :src="card.src"
-                class="white--text align-end"
                 :height="cards.length > 1 ? '150px' : '100%'"
+                class="white--text align-end"
               />
             </v-card>
           </v-hover>
@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  props: { cards: Array },
+  props: { cards: { type: Array, required: true, default: () => [] } },
   data() {
     return {}
   }
